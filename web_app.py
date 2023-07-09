@@ -52,7 +52,7 @@ def main():
     st.title("Treatment Protocol Predictor")
 
     # Read cleaned DF used to train the model
-    df = pd.read_csv('cleaned_data.csv')
+    df = pd.read_csv('cleaned_data_sample.csv')
     treatments = df['SERVICES_AT_ADMISSION'].unique().tolist()
 
     # Preprocessing
