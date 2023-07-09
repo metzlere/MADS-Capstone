@@ -1,0 +1,9 @@
+runtime: python39  # Specifies the runtime; update this to the version you're using
+instance_class: F2  # Specifies the instance class
+automatic_scaling:  # Configures the scaling type; this example uses automatic scaling
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 5
+entrypoint: streamlit run --server.port=$PORT web_app.py  # # --server.address=0.0.0.0 --server.enableWebsocketCompression=false Specifies the entrypoint command; update this based on your application
+env_variables:
+  PORT: '8080'
