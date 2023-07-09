@@ -2,6 +2,8 @@ import streamlit as st
 import joblib
 import pandas as pd
 import numpy as np
+import os
+
 
 # Load trained model
 model = joblib.load('best_random_forest.pkl')
@@ -14,7 +16,7 @@ def predict(data, treatment, feature_names):
     # Add the treatment column to the DataFrame
     df['SERVICES_AT_ADMISSION'] = treatment
     
-    # # Filter rows based on condition
+    # # Filter rows based on condition  
     # df = df[df['REASON_FOR_DISCHARGE'] != 'Transferred to another treatment program or facility']
 
     # # Create target variable
