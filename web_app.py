@@ -60,11 +60,7 @@ def main():
     df = df.drop(['REASON_FOR_DISCHARGE', 'PRIOR_TREATMENT_EPISODES'], axis=1)
     df['HEALTH_INSURANCE'] = df['HEALTH_INSURANCE'].fillna('None')
     df['ARRESTS_IN_30_DAYS_PRIOR_TO_ADMISSION'] = df['ARRESTS_IN_30_DAYS_PRIOR_TO_ADMISSION'].fillna('None')
-    df['ARRESTS_IN_30_DAYS_PRIOR_TO_DISCHARGE'] = df['ARRESTS_IN_30_DAYS_PRIOR_TO_DISCHARGE'].fillna('None')
 
-    # Drop the treatment column - need to fix
-    #df = df.drop(columns=['SERVICES_AT_ADMISSION'])
-    
     # Get the feature names from the training DataFrame
     feature_names = pd.get_dummies(df).columns
     
