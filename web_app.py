@@ -92,7 +92,7 @@ def main():
         st.write("The treatment protocols, sorted by likelihood of success, are:")
         for treatment, prob in predictions:
             treatment = treatment.replace("/", "").replace(",", "")
-            st.write(f"Treatment:{treatment} --- Probability of Success: {prob}")
+            st.write(f"{treatment} --- Probability of Success: {prob}")
         
     # Link to Dashboard embedding
     # Link to Github repo
