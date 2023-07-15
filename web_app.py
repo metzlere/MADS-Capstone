@@ -10,7 +10,6 @@ model = joblib.load('best_random_forest.pkl')
 
 # Define prediction function which takes demographic data, treatment, and feature names as input
 def predict(data, treatment, feature_names):
-    st.write(treatment)
     # Convert data dictionary to a DataFrame
     df = pd.DataFrame([data])
 
