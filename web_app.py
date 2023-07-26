@@ -3,6 +3,28 @@ import joblib
 import pandas as pd
 import numpy as np
 import os
+import plotly.express as px
+
+# Define main function for the app and navigation
+def main():
+    st.sidebar.title("Navigation")
+    selection = st.sidebar.radio("Go to", ["Prediction Page", "Visualization Page"])
+    if selection == "Prediction Page":
+        render_prediction_page()
+    elif selection == "Visualization Page":
+        render_visualization_page()
+
+
+def render_visualization_page():
+    df = pd.read_csv('cleaned_data_sample.csv')
+    
+    # Create dropdown for demographic variable selection
+    demographic_variable = st.selectbox('Select a demographic variable:', df.columns.tolist())
+    
+    # Generate count plot for selected demographic variable
+    if demographic_variable:
+        fig = px.histogram(df, x=demographic_variable, nbins=20)
+        st.plotly_chart(fig)
 
 
 # Load trained model
@@ -39,9 +61,7 @@ def predict(data, treatment, feature_names):
     return model.predict_proba(X)[0][1]
 
 
-
-
-def main():
+def render_prediction_page():
     # Set title of app
     st.title("Treatment Protocol Predictor")
 
