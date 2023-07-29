@@ -2,7 +2,7 @@
 
 ## Background & Objectives
 
-Substance use in the United States is a growing problem. In 2021 approximately 22% of the population used illicit drugs and 17% of the population met the DSM-V criteria for having substance use disorder (https://www.hhs.gov/about/news/2023/01/04/samhsa-announces-national-survey-drug-use-health-results-detailing-mental-illness-substance-use-levels-2021.html). 
+Substance use in the United States is a growing problem. In 2021 approximately 22% of the population used illicit drugs and 17% of the population met the DSM-V criteria for having substance use disorder [HHS, 2021](https://www.hhs.gov/about/news/2023/01/04/samhsa-announces-national-survey-drug-use-health-results-detailing-mental-illness-substance-use-levels-2021.html). 
 
 (Will add more - placeholder)
 
