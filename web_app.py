@@ -15,17 +15,27 @@ def main():
         render_visualization_page()
 
 
-def render_visualization_page():
-    df = pd.read_csv('cleaned_data_sample.csv')
-    
-    # Create dropdown for demographic variable selection
-    demographic_variable = st.selectbox('Select a demographic variable:', df.columns.tolist())
-    
-    # Generate count plot for selected demographic variable
-    if demographic_variable:
-        fig = px.histogram(df, x=demographic_variable, nbins=20)
-        st.plotly_chart(fig)
+def render_visualization_page():  
+    # Load the summary dataframe
+    summary_df = pd.read_csv('cleaned_data_counts.csv',  index_col=0)
 
+    # Create a dropdown for column selection
+    variable = st.selectbox('Select a variable to plot:', summary_df.index)
+
+    # Get the value counts for the selected variable
+    value_counts = summary_df.loc[variable].dropna()
+
+    # Convert the index and values to data frame
+    data = pd.DataFrame({variable: value_counts.index, 'Count': value_counts.values.astype(int)})
+
+    # Create a bar plot for the value counts
+    fig = px.bar(data, x=variable, y='Count', color=variable, title=f'Value Counts for {variable}',
+                 labels={variable: 'Value', 'Count': 'Count'}, hover_data=[variable, 'Count'])
+    
+    fig.update_layout(autosize=False, width=800, height=600, showlegend=False)
+
+    # Display the plot
+    st.plotly_chart(fig)
 
 # Load trained model
 model = joblib.load('best_random_forest.pkl')
@@ -114,7 +124,6 @@ def render_prediction_page():
             treatment = treatment.replace("/", "").replace(",", "")
             st.write(f"{treatment} --- Probability of Success: {prob}")
         
-    # Link to Dashboard embedding
     # Link to Github repo
 
 if __name__ == "__main__":
