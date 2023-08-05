@@ -14,7 +14,7 @@ def main():
     elif selection == "Visualization Page":
         render_visualization_page()
     elif selection == "About":
-        render_about_page("landing_page_txt.txt")
+        render_about_page("landing_page_text.txt")
 
 # Define function to render the landing page which displays the project description
 def render_about_page(file_path):
