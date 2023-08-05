@@ -8,7 +8,7 @@ import plotly.express as px
 # Define main function for the app and navigation
 def main():
     st.sidebar.title("Navigation")
-    selection = st.sidebar.radio("Go to", ["Prediction Page", "Visualization Page"])
+    selection = st.sidebar.radio("Go to", ["Prediction Page", "Visualization Page", "About"])
     if selection == "Prediction Page":
         render_prediction_page()
     elif selection == "Visualization Page":
