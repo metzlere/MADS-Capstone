@@ -13,8 +13,16 @@ def main():
         render_prediction_page()
     elif selection == "Visualization Page":
         render_visualization_page()
+    elif selection == "About":
+        render_about_page("landing_page_txt.txt")
 
+# Define function to render the landing page which displays the project description
+def render_about_page(file_path):
+    with open(file_path, 'r') as file:
+        data = file.read()
+    return st.markdown(data)
 
+# Define function to render the visualization page which displays the value counts for each column
 def render_visualization_page():  
     # Load the summary dataframe
     summary_df = pd.read_csv('cleaned_data_counts.csv',  index_col=0)
