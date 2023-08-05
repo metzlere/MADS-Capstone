@@ -1,0 +1,31 @@
+# Welcome to Substance Abuse Treatment Success Predictor
+
+As healthcare providers in the field of substance abuse, it can be challenging to understand and predict which treatment protocols will lead to successful outcomes for individual patients. With our interactive web tool, we've aimed to reduce the uncertainty by utilizing historical data to provide useful insights regarding successful treatment recommendations given an individual’s current medical situation.
+
+In an effort to combat the daunting issue of substance abuse, we've developed this tool that utilizes a machine learning model to predict the probability of successful patient outcomes based on a variety of prescribed treatment protocols. The tool also hosts a dashboard that displays aggregated data of our features, allowing you to explore the data in a visual and interactive format.
+
+Let's explore what each component of this tool does and how you can use it to your advantage.
+
+## What does each page do?
+
+1. **Prediction Page**:
+
+On this page, you can input information about a patient's condition. The information will then be run through our machine learning model, which will produce a prediction about the likelihood of a successful treatment outcome based on historical data. This can be used to guide you in recommending the most effective treatment protocol for the patient.
+
+2. **Visualization Page**:
+
+Here, you can interact with our dashboard that displays aggregated data. The dashboard allows you to explore the historical data in a visual format, with interactive widgets that can be adjusted based on your specific needs or interests. You can choose which features are displayed in the bar chart visualization and manipulate the view by zooming or downloading the bar chart for further analysis.
+
+3. **Landing Page (You are here)**:
+
+This page provides an overview of the project, explaining the functionality and purpose of each page, the methodology used in the development of the tool, and how it can be utilized to assist in the treatment of substance abuse.
+
+## The Science Behind The Tool
+
+Our machine learning model is built upon historical data from the Treatment Episode Data Set (TEDS) provided by SAMHSA, which contains information about the admittance and discharge of individuals who received treatment in substance abuse programs.
+
+To prepare this data for our machine learning model, we performed careful feature selection, preprocessing, and feature engineering. We identified 'successful treatment' as cases where the patient completed the substance abuse treatment and did not need readmission within the same year. This data-driven approach allowed us to use hundreds of thousands of prior cases to determine the most effective treatment methods, considering the unique needs of each patient.
+
+We carefully prevented data leakage, balanced the dataset, and utilized GridsearchCV for hyperparameter tuning to ensure the accuracy and integrity of the model. As a result, our tool provides a 70% accuracy score in predicting the success rate of a treatment protocol.
+
+We hope this tool can serve as a useful aid for healthcare providers dealing with substance abuse patients. By combining historical data, machine learning, and interactive visualizations, we've created a platform that can provide important insights, help reduce readmittance rates, and improve the overall success rate of substance abuse treatment programs. Let's work together to combat the substance abuse problem and bring positive change to the lives of millions.
