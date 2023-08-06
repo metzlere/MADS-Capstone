@@ -8,13 +8,14 @@ import plotly.express as px
 # Define main function for the app and navigation
 def main():
     st.sidebar.title("Navigation")
-    selection = st.sidebar.radio("Go to", ["Prediction Page", "Visualization Page", "About"])
-    if selection == "Prediction Page":
+    selection = st.sidebar.radio("Go to", ["About", "Prediction Page", "Visualization Page"])
+    if selection == "About":
+        render_about_page("landing_page_text.txt")
+    elif selection == "Prediction Page":
         render_prediction_page()
     elif selection == "Visualization Page":
         render_visualization_page()
-    elif selection == "About":
-        render_about_page("landing_page_text.txt")
+
 
 # Define function to render the landing page which displays the project description
 def render_about_page(file_path):
