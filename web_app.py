@@ -47,7 +47,7 @@ def render_visualization_page():
     st.plotly_chart(fig)
 
 # Load trained model
-model = joblib.load('best_random_forest.pkl')
+model = joblib.load('model_final.pkl')
 
 # Define prediction function which takes demographic data, treatment, and feature names as input
 def predict(data, treatment, feature_names):
@@ -67,11 +67,6 @@ def predict(data, treatment, feature_names):
     # Align DataFrame with the training DataFrame's columns
     df_aligned = features_one_hot.reindex(columns=feature_names, fill_value=0)
 
-
-    # Temporary fix for missing columns, need to determine why there is a mismatch
-    # for column in missing_columns:
-    #     df_aligned[column] = 0
-    
 
     # Convert the DataFrame to a numerical array
     X = df_aligned.values
