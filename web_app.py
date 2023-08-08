@@ -8,13 +8,44 @@ import plotly.express as px
 # Define main function for the app and navigation
 def main():
     st.sidebar.title("Navigation")
-    selection = st.sidebar.radio("Go to", ["About", "Prediction Page", "Visualization Page"])
+    selection = st.sidebar.radio("Go to", ["About", "Prediction Page", "Visualization Page", "Model Performance"])
     if selection == "About":
         render_about_page("landing_page_text.txt")
     elif selection == "Prediction Page":
         render_prediction_page()
     elif selection == "Visualization Page":
         render_visualization_page()
+    elif selection == "Model Performance":
+        render_performance_table()
+
+# Define function to render a table of model performance metrics
+def render_performance_table():
+
+    st.write("""
+             ## Model Performance Baseline (no hyperparameter tuning)
+             """)
+
+    data = [['Model', 'Accuracy', 'Precision', 'Recall', 'F1 Score'],
+            ['Naive Bayes', 0.529, 0.599, 0.663, 0.505],
+            ['Logistic Regression', 0.706, 0.638, 0.724, 0.635],
+            ['Random Forest', 0.822, 0.669, 0.689, 0.678]]
+
+    # Convert data to a DataFrame
+    df = pd.DataFrame(data[1:], columns=data[0])
+
+    st.table(df)
+
+    st.write("""
+                ## Model Performance with Hyperparameter Tuning and 5 Fold Cross Validation
+                """)
+
+    data2 = [['Model', 'Accuracy', 'Precision', 'Recall', 'F1 Score'],
+            ['Random Forest', 0.710, 0.639, 0.725, 0.638]]
+
+    # Convert data to a DataFrame
+    df2 = pd.DataFrame(data2[1:], columns=data2[0])
+
+    st.table(df2)
 
 
 # Define function to render the landing page which displays the project description
