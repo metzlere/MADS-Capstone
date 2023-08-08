@@ -32,14 +32,18 @@ Datasets are publically available here: https://www.datafiles.samhsa.gov/dataset
 ## Files to Download
 
 1. Download datasets from [SAHMSA](https://www.datafiles.samhsa.gov/dataset/teds-d-2017-ds0001-teds-d-2017-ds0001). We used 2017-2020.
-2. 
 
 ## Data Preparation and Feature Engineering
 
 1. Run **combine_teds_d_data_files.ipynb** to merge all the datasets together
-2. Next, preprocess the datasets with **preprocessing.ipynb**
+2. Next, preprocess the datasets with **preprocessing.ipynb**. The resulting cleaned dataframe is saved to cleaned_data.csv
 
-## Predictive Modeling & Web App Creation
+## Predictive Modeling 
 
-1. The **model_devleopment.ipynb** will create the random forest model (as a pickle file) as well as tune the model to the best parameters.
-2. 
+1. Run **model_development.ipynb** to train and evaluate model baselines as well as tune the model to the best parameters. This script will save the tuned model output from GridSearchCV to a pickle file, which will be loaded in the web app.
+
+## Web App Development
+
+1. Run **create_summary_df_for_visuals.ipynb** which will take the cleaned_data.csv file and aggregate the data by value counts, saving the output to cleaned_data_counts.csv. This reduces the size of the data which must be uploaded to GitHub and used in the web app. The full cleaned_data.csv file is too large.
+2. Run **create_sample_df.ipynb**, which will create a new dataframe that contains all of the unique values for each column in the original cleaned_data.csv file, and save the output to cleaned_data_sample.csv. This is necessary because cleaned_data.csv is too large to upload to GitHub, but the sample dataframe provides all of the necessary information to create the web app prediction page.
+3. Run **web_app.py**, which will create a streamlit web app consisting of a landing page, dashboard visualization, prediction page, and evaluation metrics for the model. To test the web app locally, you will need to set up an environment. We deployed to Streamlit Community Cloud, which links to our GitHub repo and pulls all files necessary to run the web app from there.
