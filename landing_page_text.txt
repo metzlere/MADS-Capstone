@@ -20,6 +20,10 @@ Here, you can interact with our visualization that displays aggregated historica
 
 This page provides an overview of the project, explaining the functionality and purpose of each page, the methodology used in the development of the tool, and how it can be utilized to assist in the treatment of substance abuse.
 
+4. **Model Performance**
+
+This page highlights the performance evaluation of several baseline models, as well as the performance of the final model used for predictions in the web app.
+ 
 ## The Science Behind The Tool
 
 Our machine learning model is built upon historical data from the Treatment Episode Data Set (TEDS) provided by SAMHSA, which contains information about the admittance and discharge of individuals who received treatment in substance abuse programs.
