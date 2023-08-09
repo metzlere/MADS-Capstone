@@ -176,7 +176,32 @@ def render_prediction_page():
             treatment = treatment.replace("/", "").replace(",", "")
             st.write(f"{treatment} --- Probability of Success: {round(prob, 4)}")
         
-    # Link to Github repo
+        st.write("""
+                 • Detoxification, 24-hour service, hospital inpatient: 24 hours per day medical acute care services in hospital setting for
+                detoxification of persons with severe medical complications associated with withdrawal.
+                                
+                • Detoxification, 24-hour service, free-standing residential: 24 hours per day services in non-hospital setting providing for
+                safe withdrawal and transition to ongoing treatment.
+                                
+                • Rehabilitation/Residential – hospital (other than detoxification): 24 hours per day medical care in a hospital facility in
+                conjunction with treatment services for alcohol and other drug use and dependency.
+                                
+                • Rehabilitation/Residential – short term (30 days or fewer): Typically, 30 days or fewer of non-acute care in a setting with
+                treatment services for alcohol and other drug use and dependency.
+                                
+                • Rehabilitation/Residential – long term (more than 30 days): Typically, more than 30 days of non-acute care in a setting
+                with treatment services for alcohol and other drug use and dependency; may include transitional living arrangements such
+                as halfway houses.
+                                
+                • Ambulatory - intensive outpatient: At a minimum, treatment lasting two or more hours per day for 3 or more days per
+                week.
+                                
+                • Ambulatory - non-intensive outpatient: Ambulatory treatment services including individual, family and/or group services;
+                may include pharmacological therapies.
+                                
+                • Ambulatory - detoxification: Outpatient treatment services providing for safe withdrawal in an ambulatory setting
+                (pharmacological or non-pharmacological)
+                """)
 
 if __name__ == "__main__":
     main()
