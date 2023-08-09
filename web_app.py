@@ -36,8 +36,13 @@ def render_performance_table():
     st.table(df)
 
     st.write("""
+             The Random Forest Classifier performed significantly better than the other models we considered in a baseline evaluation
+             """)
+    
+    st.write("""
                 ## Model Performance with Hyperparameter Tuning and 5 Fold Cross Validation
                 """)
+
 
     data2 = [['Model', 'Accuracy', 'Precision', 'Recall', 'F1 Score'],
             ['Random Forest', 0.710, 0.639, 0.725, 0.638]]
@@ -46,6 +51,18 @@ def render_performance_table():
     df2 = pd.DataFrame(data2[1:], columns=data2[0])
 
     st.table(df2)
+
+    st.write("""
+            After initial training, the model was tuned using a grid search and 5 fold cross validation. 
+            We found that training the model with 'None' as the max_depth parameter resulted in a model size that was too large to deploy in Streamlit, because the max 
+            file size in the linked GitHub repo is 100 MB. The default parameters for the Scikit-Learn Random Forest have a max depth of 'None', and the model trained on the 
+            default parameters actually outperformed the fine-tuned model (as seen in the tables above). We were able to reduce the model size by setting the max_depth parameter to 12, and n_estimators to 200, which were the best 
+            possible parameters which resulted in a trained model within the 100 MB requirement.
+            ## Future Work
+            In the future, given additional compute resources and time to work through model size-related issues using alternative means (Git Large File Store is not free for our use case), we would like to train our model on the full dataset (over 6M records).
+            Additionally, we would like to perform hyperparameter tuning on a larger grid of parameters.
+            We encountered memory issues even on higher memory machines procured in GCP. We would be interested to see how accurate our model can be without any memory concerns or contraints on model sizes.
+            """)
 
 
 # Define function to render the landing page which displays the project description
