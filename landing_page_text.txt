@@ -23,7 +23,7 @@ This page provides an overview of the project, explaining the functionality and 
 4. **Model Performance**
 
 This page highlights the performance evaluation of several baseline models, as well as the performance of the final model used for predictions in the web app.
- 
+
 ## The Science Behind The Tool
 
 Our machine learning model is built upon historical data from the Treatment Episode Data Set (TEDS) provided by SAMHSA, which contains information about the admittance and discharge of individuals who received treatment in substance abuse programs.
@@ -33,3 +33,6 @@ To prepare this data for our machine learning model, we performed careful featur
 We carefully prevented data leakage, balanced the dataset, and utilized GridsearchCV for hyperparameter tuning to ensure the accuracy and integrity of the model. As a result, our tool provides more than 80% accuracy score in predicting the success rate of a treatment protocol.
 
 We hope this tool can serve as a useful aid for healthcare providers dealing with substance abuse patients. By combining historical data, machine learning, and interactive visualizations, we've created a platform that can provide important insights, help reduce readmittance rates, and improve the overall success rate of substance abuse treatment programs. Let's work together to combat the substance abuse problem and bring positive change to the lives of millions.
+
+## Link to GitHub repo:
+https://github.com/metzlere/MADS-Capstone/tree/main
