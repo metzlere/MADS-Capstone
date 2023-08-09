@@ -122,7 +122,7 @@ def predict(data, treatment, feature_names):
     # Make predictions using the model
     return model.predict_proba(X)[0][1]
 
-
+# Define function to render the prediction page, which calls the prediction function
 def render_prediction_page():
     # Set title of app
     st.title("Treatment Protocol Predictor")
@@ -171,10 +171,10 @@ def render_prediction_page():
         # Sort treatments by prediction probability
         predictions.sort(key=lambda x: x[1], reverse=True)
         # Display the prediction
-        st.write("The treatment protocols, sorted by likelihood of success, are:")
+        st.write("### The treatment protocols, sorted by likelihood of success, are:")
         for treatment, prob in predictions:
             treatment = treatment.replace("/", "").replace(",", "")
-            st.write(f"{treatment} --- Probability of Success: {prob}")
+            st.write(f"{treatment} --- Probability of Success: {round(prob, 4)}")
         
     # Link to Github repo
 
