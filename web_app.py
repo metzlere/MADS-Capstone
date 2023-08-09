@@ -177,6 +177,10 @@ def render_prediction_page():
             st.write(f"{treatment} --- Probability of Success: {round(prob, 4)}")
         
         st.write("""
+                 
+                 ---------------------------------------
+                 **Explanation of treatments:**
+                 
                  • Detoxification, 24-hour service, hospital inpatient: 24 hours per day medical acute care services in hospital setting for
                 detoxification of persons with severe medical complications associated with withdrawal.
                                 
