@@ -10,7 +10,7 @@ Let's explore what each component of this tool does and how you can it can be us
 
 1. **Prediction Page**:
 
-On this page, you enter information about the patient of interest. This information will be passed to our machine learning model, which will produce a predictions about the likelihood of a successful treatment outcome for the various treatment options, and rank them from highest probability of success to lowest probability of success. This can be used to guide you in recommending the most effective treatment protocol for the patient.
+On this page, you enter information about the patient of interest. This information will be passed to our machine learning model, which will produce predictions about the likelihood of a successful treatment outcome for the various treatment options, and rank them from highest probability of success to lowest probability of success. This can be used to guide you in recommending the most effective treatment protocol for the patient.
 
 2. **Visualization Page**:
 
