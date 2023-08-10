@@ -108,10 +108,6 @@ def predict(data, treatment, feature_names):
     # Perform one-hot encoding on the DataFrame
     features_one_hot = pd.get_dummies(df)    
 
-    # for feature in features_one_hot.columns:
-    #     st.write(feature)
-    
-
     # Align DataFrame with the training DataFrame's columns
     df_aligned = features_one_hot.reindex(columns=feature_names, fill_value=0)
 
@@ -143,9 +139,6 @@ def render_prediction_page():
     # Get the feature names from the training DataFrame
     feature_names = pd.get_dummies(df).columns
 
-    # for feature in feature_names:
-    #    st.write(feature)
-    
     # Create dictionary to hold user inputs
     user_inputs = {}
 
@@ -159,7 +152,6 @@ def render_prediction_page():
 
         # Create a user input for the column
         user_inputs[column] = st.selectbox(column, unique_values)
-
 
     # Create a button and use it to run predictions for each treatment option
     if st.button("Predict"):
@@ -180,7 +172,7 @@ def render_prediction_page():
                  
                  ---------------------------------------
                  **Explanation of treatments:**
-                 
+
                  • Detoxification, 24-hour service, hospital inpatient: 24 hours per day medical acute care services in hospital setting for
                 detoxification of persons with severe medical complications associated with withdrawal.
                                 
