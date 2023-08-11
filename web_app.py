@@ -94,6 +94,12 @@ def render_visualization_page():
     # Display the plot
     st.plotly_chart(fig)
 
+    st.write("""
+             ## Future Work
+            We were limited in terms of data visualization due to the size of the dataset and the file size limit of 100 MB for the GitHub repo for integration with the web app in Streamlit.
+            In the future, we would like to explore using more powerful data visualization software such as Tableau or Power BI to create visualizations with robust filtering and drill-down capabilities on the full dataset. 
+             """)
+
 # Load trained model
 model = joblib.load('model_final.pkl')
 
