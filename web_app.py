@@ -8,7 +8,7 @@ import plotly.express as px
 # Define main function for the app and navigation
 def main():
     st.sidebar.title("Navigation")
-    selection = st.sidebar.radio("Go to", ["About", "Prediction Page", "Visualization Page", "Model Performance"])
+    selection = st.sidebar.radio("Go to", ["About", "Prediction Page", "Visualization Page", "Model Performance", "Bias Analysis"])
     if selection == "About":
         render_about_page("landing_page_text.txt")
     elif selection == "Prediction Page":
@@ -17,6 +17,55 @@ def main():
         render_visualization_page()
     elif selection == "Model Performance":
         render_performance_table()
+    elif selection == "Bias Analysis":
+        render_bias_analysis()
+
+def render_bias_analysis():
+    st.markdown("## Bias Analysis")
+    st.markdown("### LIME")
+    st.write("""
+             In order to explore the potential of racial bias in our model, we used the LIME (Local Interpretable Model-Agnostic Explanations) 
+             package to generate explanations for our model's predictions. LIME is a model-agnostic method for explaining the predictions of
+             a model. It approximates any model with a local linear model which improves interpretability.
+             One instance of the LIME analysis is shown below:
+             """)
+    
+    data = [('RACE_Alaskan Native = 0', -0.0075929092),
+        ('RACE_Not known = 0', -0.0027402459),
+        ('RACE_American Indian = 0', -0.0022644763),
+        ('RACE_Two or more races = 0', -0.001571695),
+        ('RACE_Asian = 0', -0.0007708449),
+        ('RACE_White = 0', -0.000252296),
+        ('RACE_Asian or Pacific Islander = 0', 0.0),
+        ('RACE_Other single race = 0', 0.0013001929),
+        ('RACE_Black or African American = 0', 0.00285716),
+        ('RACE_Native Hawaiian or Other Pacific Islander = 0', 0.0042015106)]
+
+    # Creating the dataframe
+    df = pd.DataFrame(data, columns=['Race Variable', 'Value'])
+
+    st.table(df)
+
+    st.write("""
+            The table above shows the weights of the race features which contributed to a prediction of success
+            for a given treatment protocol. For example, if a patient is NOT Alaskan Native (RACE_Alaskan Native <= 0.00),
+            the model is less likely to predict a successful treatment outcome with a weight of -0.0076. If the patient is 
+            NOT Native Hawaiian or other Pacific Islander, then the model is more likely to predict a successful treatment
+            outcome with a weight of 0.0042.
+             """)
+    
+    st.write("""
+            It is important to note that the results of LIME are specific to the instance and do not 
+            necessarily represent the model as a whole. However, LIME can be useful as a starting point to explore the 
+            potential for bias. In this case, the weights are very small relative to other features, but in future work 
+            we would like to explore the potential for bias in more detail. Specifically, we would like to
+            examine distributions of successful treatment predictions for different racial groups and evaluating 
+            model performance (accuracy, precision, recall) by racial group.
+             """)
+    
+    st.write("""
+            ### SHAP
+             """)
 
 # Define function to render a table of model performance metrics
 def render_performance_table():
