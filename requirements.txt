@@ -3,13 +3,15 @@ pandas
 numpy
 scikit-learn==1.2.2
 plotly
-xgboost
-joblib
-lime
-shap
-os
-imblearn
-ipywidgets
-seaborn
-matplotlib
-plotly.express
+
+## Not used in web app
+# xgboost
+# joblib
+# lime
+# shap
+# os
+# imblearn
+# ipywidgets
+# seaborn
+# matplotlib
+# plotly.express
