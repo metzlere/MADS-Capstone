@@ -64,7 +64,23 @@ def render_bias_analysis():
              """)
     
     st.write("""
-            ### SHAP
+            ### Feature Ablation
+            We also performed a feature ablation analysis to determine which features were most important to the model's predictions.
+            While this analysis does not directly examine the bias in the model, it can be used to identify features
+            which may be contributing to bias. The result is shown below:
+             """)
+    
+    st.write("""
+            **Accuracy score after removing race variables: 0.7055**
+             """)
+    
+    st.write("""
+            Removing the race variables results in a decrease of model accuracy of about .0045.
+            This result does not appear to be signficant. In the context of this analysis, we can be reasonably
+            confident that the model is not biased against any particular racial group. However, we are only
+            considering a few possible sources of racial bias with a limited number of techniques. It is also important
+            to note that racial bias is not the only form of bias which may be present in the model, and other protected
+            variables should be reviewed for bias in future work.
              """)
 
 # Define function to render a table of model performance metrics
@@ -217,11 +233,24 @@ def render_prediction_page():
 
         # Sort treatments by prediction probability
         predictions.sort(key=lambda x: x[1], reverse=True)
+
         # Display the prediction
         st.write("### The treatment protocols, sorted by likelihood of success, are:")
+
+        treatments_list = []
+        probabilities_list = []
         for treatment, prob in predictions:
-            treatment = treatment.replace("/", "").replace(",", "")
-            st.write(f"{treatment} --- Probability of Success: {round(prob, 4)}")
+            treatment_cleaned = treatment.replace("/", "")
+            treatments_list.append(treatment_cleaned)
+            probabilities_list.append(round(prob, 4))
+            st.write(f"{treatment_cleaned} --- Probability of Success: {round(prob, 4)}")
+
+        # Make bar chart to highlight magnitude of differences in probabilities
+        chart_data = pd.DataFrame({
+            'Treatment': treatments_list,
+            'Probability of Success': probabilities_list
+        })
+        st.bar_chart(chart_data.set_index('Treatment'))
         
         st.write("""
                  
